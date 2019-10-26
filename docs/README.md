@@ -1,5 +1,4 @@
 # [Meetapp](https://github.com/antoniomatheus/meetapp)
-
 ---
 
 ## Introduction
@@ -25,14 +24,14 @@ git clone https://github.com/antoniomatheus/meetapp.git
 
 ### Backend
 
-To run both the mobile and browser application it's necessary to start-up the back-end processes.
+To run both the mobile and browser application, it's necessary to start-up the back-end processes.
 
 > As mentioned, the back-end makes use of 3 databases: **postgreSQL, Mongo and Redis**. You can 
 run all of them as **Docker** containers.
 
 To setup the back-end follow the steps:
 
-1. Enter into the back-end folder ```/database```:
+1. Enter into the back-end folder ```/backend```:
 
 2. Install all dependecies (with yarn):
 
@@ -46,13 +45,19 @@ yarn
   >The reason the application uses **Redis** is that the mailing process runs on a different 
   process from the main process, to do that, it uses Redis to store e-mails in a queue and then send them.
 
-4. Start the main process:
+4. Create the postgreSQL's table by running:
+
+```bash
+yarn sequelize db:migrate
+```
+
+5. Start the main process:
 
 ```bash
 yarn dev
 ```
 
-5. (Optional) If you wish to send e-mails for testing, start the redis queue:
+6. (Optional) If you wish to send e-mails for testing, start the redis queue:
 
 ```bash
 yarn queue

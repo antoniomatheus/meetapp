@@ -25,7 +25,9 @@ export default function Dashboard() {
       const response = await api.get(`meetups?date=${date.toISOString()}`);
 
       const availableMeetups = response.data.filter(
-        meetup => meetup.organizer_id !== profile.id
+        meetup =>
+          meetup.organizer_id !== profile.id &&
+          !meetup.participants_ids.includes(profile.id)
       );
 
       setMeetups(availableMeetups);
