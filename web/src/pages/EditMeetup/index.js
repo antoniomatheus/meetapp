@@ -100,7 +100,8 @@ export default function EditMeetup({ history }) {
           showTimeSelect
           timeIntervals={5}
           timeCaption="Time"
-          dateFormat="d/MM/yyyy H:mm"
+          dateFormat="MM/d/yyyy H:mm"
+          placeholderText="Date"
         />
         <Input type="text" placeholder="Location" name="location" />
 
